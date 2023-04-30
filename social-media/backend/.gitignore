@@ -1,0 +1,15 @@
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+package-lock.json
+yarn.lock
+npm
+# Node
+node_modules
+/node_modules
+/node_modules*
+npm-debug.log
+yarn-error.log
