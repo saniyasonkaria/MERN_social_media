@@ -1,10 +1,11 @@
-import React from 'react';
-import { Users } from '../../dummyData';
-import Online from '../online/Online';
+import React from "react";
+import { Users } from "../../dummyData";
+import Online from "../online/Online";
 import "./rightbar.css";
 
-const Rightbar = ({user}) => {
-  const PF =process.env.REACT_APP_PUBLIC_FOLDER;
+const Rightbar = ({ user }) => {
+  console.log(" rightbar user ", user);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const HomeRightbar = () => {
     return (
       <>
@@ -40,14 +41,20 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">{user.relationship}</span>
+            <span className="rightbarInfoValue">
+              {user.relationship === 1
+                ? "Single"
+                : user.relationship === 2
+                ? "Married"
+                : "none"}
+            </span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
             <img
-             src={`${PF}person/1.jpeg`}  
+              src={`${PF}person/1.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -55,7 +62,7 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarFollowing">
             <img
-             src={`${PF}person/2.jpeg`}  
+              src={`${PF}person/2.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -63,7 +70,7 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarFollowing">
             <img
-             src={`${PF}person/3.jpeg`}  
+              src={`${PF}person/3.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -71,7 +78,7 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarFollowing">
             <img
-             src={`${PF}person/4.jpeg`}  
+              src={`${PF}person/4.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -79,7 +86,7 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarFollowing">
             <img
-             src={`${PF}person/5.jpeg`}  
+              src={`${PF}person/5.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -87,7 +94,7 @@ const Rightbar = ({user}) => {
           </div>
           <div className="rightbarFollowing">
             <img
-              src={`${PF}person/6.jpeg`}  
+              src={`${PF}person/6.jpeg`}
               alt=""
               className="rightbarFollowingImg"
             />
@@ -100,9 +107,9 @@ const Rightbar = ({user}) => {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-      {user ? <ProfileRightbar /> : <HomeRightbar />}
+        {user ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   );
-}
-export default Rightbar 
+};
+export default Rightbar;
